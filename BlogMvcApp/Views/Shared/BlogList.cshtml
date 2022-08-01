@@ -1,0 +1,33 @@
+﻿@model IEnumerable<BlogMvcApp.Models.BlogModel>
+
+
+@if (Model.Count() > 0)
+{
+    foreach (var blog in Model)
+    {
+        <div class="blog">
+            <h3 class="page-header">
+                @blog.Title
+            </h3>
+            <p>
+                <span class="glyphicon glyphicon-time">
+                    @blog.AddBlogDate
+                </span>
+            </p>
+            <hr />
+            <img src="http://via.placeholder.com/700x300/" alt="" />
+            <hr />
+            <p>
+                @blog.Description
+            </p>
+            @Html.ActionLink("Daha Fazla...", "Details", "Blog", new { id = blog.Id }, new { @class = "btn btn-primary" })
+        </div>
+    }
+}
+else
+{
+    <div class="alert alert-danger">
+        <p class="text-warning">Herhangi bir blog bulunumadı</p>
+    </div>
+
+}

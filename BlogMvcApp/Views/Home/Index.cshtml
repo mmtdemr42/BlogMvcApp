@@ -1,0 +1,16 @@
+﻿@model IEnumerable<BlogMvcApp.Models.BlogModel>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>Blog Listesi</h2>
+
+
+@Html.Partial("BlogList", Model)
+}
+
+@section RightMenu{
+   @Html.Partial("BlogSearch", Model)
+
+    @Html.Action("GetCategoryName", "Category")
+}
